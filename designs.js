@@ -6,6 +6,7 @@ const gridHeight= document.getElementById('inputHeight');
 const canvas = document.getElementById('pixelCanvas');
 
 // When size is submitted by the user, call makeGrid()
+//prevent the default, prevent  to reload the page on form submit.
 const submit = document.getElementById('sizePicker');
   submit.addEventListener('submit', function (e){
     e.preventDefault();
@@ -14,13 +15,15 @@ const submit = document.getElementById('sizePicker');
 )
 
 function makeGrid() {
-  // Your code goes here!
+
+ //The old grid should be cleared
+ // before creating the new one
   canvas.innerHTML = '';
   //    Draw rows
-  for (x = 0; x < gridWidth.value; x++) {
+  for (x = 0; x < gridHeight.value; x++) {
     var row = document.createElement('tr');
     //   Draw columns
-    for (y = 0; y < gridHeight.value; y++) {
+    for (y = 0; y < gridWidth.value; y++) {
       var column = document.createElement('td');
       row.appendChild(column);
       column.addEventListener('click',function(event){
